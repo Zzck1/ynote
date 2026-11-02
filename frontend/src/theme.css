@@ -1,0 +1,432 @@
+/* Keep the theme control beside the wordmark on every route and screen size. */
+.app-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.app-brand-group > .brand {
+  flex-shrink: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 9px;
+  background: var(--color-page);
+  color: var(--color-ink-2);
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+
+.theme-toggle:hover {
+  background: var(--color-hov);
+  border-color: var(--color-line-strong);
+  color: var(--color-accent);
+}
+
+.theme-toggle:active {
+  background: var(--color-act);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.theme-toggle > svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Shared semantic tokens also theme the utility-based settings and notes pages. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-page: #111c2d;
+  --color-subtle: #17263b;
+  --color-hov: #20334d;
+  --color-act: #294361;
+  --color-sel: #1b3556;
+  --color-line: #2c405c;
+  --color-line-strong: #47617f;
+  --color-ink: #e5eefb;
+  --color-ink-2: #bfcee1;
+  --color-ink-3: #a8bad0;
+  --color-ink-4: #92a5be;
+  --color-inverse: #ffffff;
+  --color-accent: #8abaff;
+  --color-success: #72d5ad;
+  --color-success-bg: #12372d;
+  --color-danger: #ffacb9;
+  --color-danger-bg: #3b202b;
+  --color-warning: #f0cf8b;
+  --color-warning-bg: #3b321d;
+  --color-info: #8abaff;
+  --color-info-bg: #193454;
+  --shadow-pop: 0 12px 30px #0008;
+  --shadow-modal: 0 30px 90px #000b;
+  --theme-canvas: #0c1523;
+  --theme-action: #225fc4;
+  --theme-action-hover: #2d6ed4;
+}
+
+:root[data-theme='dark'] :is(.app-header, .brand-logo) {
+  border-color: var(--color-line);
+}
+
+:root[data-theme='dark'] .app-header {
+  background: var(--color-page);
+}
+
+:root[data-theme='dark'] .brand {
+  color: var(--color-ink);
+}
+
+:root[data-theme='dark'] .brand-divider {
+  background: var(--color-line);
+}
+
+:root[data-theme='dark'] :is(.brand-caption, .header-nav a) {
+  color: var(--color-ink-3);
+}
+
+:root[data-theme='dark'] :is(.header-nav a.active, .header-nav a:hover) {
+  color: var(--color-accent);
+}
+
+:root[data-theme='dark'] .header-nav a.active::after {
+  background: var(--color-accent);
+}
+
+/* Legacy light surfaces: preserve layout and media, replacing only UI colors. */
+:root[data-theme='dark'] .task-shell {
+  background: var(--theme-canvas);
+}
+
+:root[data-theme='dark'] :is(
+  .task-sidebar, .result-box, .batch-result-block, .preferences-form,
+  .import-card, .workspace-tabs, .extractor, .local-status,
+  .empty-chips > span, .quality-select select
+) {
+  background: var(--color-page);
+  border-color: var(--color-line);
+}
+
+:root[data-theme='dark'] :is(
+  .sidebar-search, .history-list, .history-row, .empty-history,
+  .pane-label, .input-toolbar, .media-output, .extract-footer,
+  .batch-result-bottom, .image-asset
+) {
+  border-color: var(--color-line);
+}
+
+:root[data-theme='dark'] :is(
+  .new-task-button, .batch-nav, .card-action, .task-input-tools button,
+  .batch-input-row, .preferences-grid select,
+  .preferences-grid input[type='number']
+) {
+  background: var(--color-page);
+  border-color: var(--color-line-strong);
+  color: var(--color-ink-2);
+}
+
+:root[data-theme='dark'] .batch-nav {
+  border-color: transparent;
+}
+
+:root[data-theme='dark'] :is(
+  .new-task-button, .new-task-button.active, .new-task-button:hover,
+  .history-task.selected, .batch-nav.active, .batch-nav:hover,
+  .tool-tabs > .selected, .history-tabs > button.active
+) {
+  background: var(--color-sel);
+  border-color: var(--color-line-strong);
+  color: var(--color-accent);
+}
+
+:root[data-theme='dark'] :is(
+  .history-task:hover, .history-row:hover, .history-row.active,
+  .card-action:hover, .task-input-tools button:hover,
+  .tool-tabs > a:hover, .tool-tabs > button:hover, .prepare-button:hover
+) {
+  background: var(--color-hov);
+  color: var(--color-accent);
+}
+
+:root[data-theme='dark'] .history-task.selected {
+  background: var(--color-sel);
+}
+
+:root[data-theme='dark'] :is(
+  .history-label > span, .blank-workbench > span, .summary-cover,
+  .text-surface, .asset-empty, .video-asset, .image-asset img,
+  .image-asset > a:last-child, .batch-result-index, .embedded-results,
+  .batch-input-row.submitted, .section-heading h2 > span
+) {
+  background: var(--color-subtle);
+  border-color: var(--color-line);
+}
+
+:root[data-theme='dark'] .task-input-panel {
+  background:
+    radial-gradient(ellipse at 0 30%, #244f844d, transparent 55%),
+    radial-gradient(ellipse at 100% 20%, #25635933, transparent 60%),
+    linear-gradient(90deg, var(--color-subtle), var(--color-page));
+  border-color: var(--color-line-strong);
+  box-shadow: 0 4px 15px #0002;
+}
+
+:root[data-theme='dark'] .task-input-panel::before {
+  background-image:
+    linear-gradient(#9cbbe608 1px, transparent 1px),
+    linear-gradient(90deg, #9cbbe608 1px, transparent 1px);
+}
+
+:root[data-theme='dark'] .task-input-field {
+  background: var(--color-page);
+  border-color: var(--color-line-strong);
+  color: var(--color-accent);
+  box-shadow: 0 0 0 4px #8abaff0b, 0 4px 12px #0002;
+}
+
+:root[data-theme='dark'] .task-input-field:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px #8abaff24;
+}
+
+:root[data-theme='dark'] .batch-input-panel {
+  background: linear-gradient(120deg, var(--color-subtle), var(--color-page));
+  border-color: var(--color-line-strong);
+}
+
+:root[data-theme='dark'] :is(
+  .history-task strong, .workbench-title h1, .summary-title h2,
+  .result-box-heading h3, .batch-input-heading h2,
+  .batch-result-header h3, .preferences-form h2,
+  .source-pane textarea, .task-input-field textarea,
+  .batch-input-row input, .sidebar-search input,
+  .motion-card h3, .history-row strong
+) {
+  color: var(--color-ink);
+}
+
+:root[data-theme='dark'] :is(
+  .history-label, .history-label > span, .blank-workbench h2, .summary-grid code,
+  .text-surface, .batch-results-title h2, .preferences-grid > label,
+  .empty-result h2, .section-heading h2, .section-heading h2 > span, .empty-history strong,
+  .quality-select select
+) {
+  color: var(--color-ink-2);
+}
+
+:root[data-theme='dark'] :is(
+  .history-task-icon, .history-task > div > span, .history-placeholder,
+  .sidebar-search, .workbench-title p, .workbench-title > span,
+  .task-input-field textarea:read-only, .task-input-tools > span,
+  .blank-workbench, .blank-workbench p, .task-progress,
+  .task-progress > button, .summary-cover, .summary-grid,
+  .result-box-heading h3 > span, .no-content, .asset-empty,
+  .video-asset > div, .audio-asset > span, .drop-overlay span,
+  .batch-input-heading p, .batch-row-index, .batch-row-tools > button,
+  .submitted-label, .input-hint, .batch-results-title > span,
+  .batch-result-index, .batch-result-header p, .batch-result-bottom,
+  .preferences-form > p, .intro-kicker, .page-intro p, .local-status,
+  .tool-tabs > a, .tool-tabs > button, .tool-tabs > span, .subtle-tag,
+  .source-helper, .source-helper .more-platforms, .plain-button,
+  .shortcut, .empty-result p, .empty-chips > span, .result-title p,
+  .quality-select, .output-meta small, .job-detail, .inline-preview > button,
+  .note-link, .privacy-line, .motion-card p, .feature-number,
+  .section-heading h2 svg, .history-tabs > button, .empty-history,
+  .empty-history p, .history-row small, .history-row > svg,
+  .extract-footer, .muted-notice
+) {
+  color: var(--color-ink-3);
+}
+
+:root[data-theme='dark'] :is(
+  .task-input-field textarea, .batch-input-row input, .source-pane textarea
+)::placeholder {
+  color: var(--color-ink-4);
+}
+
+:root[data-theme='dark'] :is(
+  .history-task.selected .history-task-icon, .blank-workbench > span,
+  .task-input-tools button:first-child,
+  .result-box-heading h3 > svg, .no-content a, .video-asset a,
+  .image-asset > a:last-child, .batch-row-tools > button:hover,
+  .batch-result-bottom a, .preferences-form > .card-action,
+  .page-intro h1 > span, .pane-label > span:first-child svg,
+  .plain-button:hover, .job-detail button, .note-link:hover,
+  .empty-history > .plain-button,
+  .tool-tabs > .selected, .history-tabs > button.active,
+  .tool-tabs > a:hover, .tool-tabs > button:hover
+) {
+  color: var(--color-accent);
+}
+
+:root[data-theme='dark'] :is(
+  .history-task i, .status-dot, .source-helper i,
+  .result-title i, .extract-footer i
+) {
+  background: var(--color-ink-4);
+}
+
+/* Status colors remain meaningful, including partial and failed results. */
+:root[data-theme='dark'] .task-badge {
+  color: var(--color-info);
+  background: var(--color-info-bg);
+}
+
+:root[data-theme='dark'] .task-badge.succeeded {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+:root[data-theme='dark'] .task-badge.partial {
+  color: var(--color-warning);
+  background: var(--color-warning-bg);
+}
+
+:root[data-theme='dark'] :is(.task-badge.failed, .task-error, .error-banner) {
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+  border-color: #754454;
+}
+
+:root[data-theme='dark'] :is(
+  .task-badge.cancelled, .task-badge.interrupted, .task-badge.draft
+) {
+  color: var(--color-ink-3);
+  background: var(--color-subtle);
+}
+
+:root[data-theme='dark'] :is(.copy-error, .job-detail.failed) {
+  color: var(--color-danger);
+}
+
+:root[data-theme='dark'] :is(
+  .preferences-saved, .ready-label, .job-detail.succeeded,
+  .history-state, .privacy-line svg
+) {
+  color: var(--color-success);
+}
+
+:root[data-theme='dark'] :is(.status-dot.succeeded, .local-status > span) {
+  background: var(--color-success);
+}
+
+:root[data-theme='dark'] .local-status > span {
+  box-shadow: 0 0 0 3px var(--color-success-bg);
+}
+
+:root[data-theme='dark'] .status-dot.failed {
+  background: var(--color-danger);
+}
+
+:root[data-theme='dark'] .status-dot.partial {
+  background: var(--color-warning);
+}
+
+:root[data-theme='dark'] .drop-overlay {
+  background: #14263bef;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-pop);
+}
+
+/* The extraction view shares the header and may be used independently. */
+:root[data-theme='dark'] .extract-page {
+  background: linear-gradient(180deg, var(--theme-canvas), var(--color-page) 660px);
+  color: var(--color-ink);
+}
+
+:root[data-theme='dark'] :is(.result-pane, .motion-card) {
+  background: linear-gradient(140deg, var(--color-page), var(--color-subtle));
+  border-color: var(--color-line);
+}
+
+:root[data-theme='dark'] :is(
+  .new-tag, .platform-badge, .output-icon, .feature-icon,
+  .history-icon, .prepare-button, .floating-audio, .floating-play
+) {
+  background: var(--color-info-bg);
+  border-color: var(--color-line-strong);
+  color: var(--color-accent);
+}
+
+:root[data-theme='dark'] .output-icon.audio {
+  background: #2c294b;
+  color: #c2b8ff;
+}
+
+:root[data-theme='dark'] .spotlight-halo {
+  background: radial-gradient(180px circle at var(--mx, -200px) var(--my, -200px), #619cfa1f, transparent);
+}
+
+:root[data-theme='dark'] .source-pane textarea:focus {
+  box-shadow: inset 3px 0 var(--color-accent);
+}
+
+/* Link accents are bright; filled actions retain enough contrast for white text. */
+:root[data-theme='dark'] :is(.resolve-button, .save-button),
+:root[data-theme='dark'] .btn-ink.bg-accent:not(:disabled) {
+  background: var(--theme-action);
+  border-color: var(--theme-action);
+  color: var(--color-inverse);
+}
+
+:root[data-theme='dark'] :is(.resolve-button, .save-button):hover,
+:root[data-theme='dark'] .btn-ink.bg-accent:not(:disabled):hover {
+  background: var(--theme-action-hover);
+}
+
+:root[data-theme='dark'] .extract-start {
+  background: linear-gradient(115deg, var(--theme-action), #5958b9);
+  color: var(--color-inverse);
+}
+
+:root[data-theme='dark'] .btn-ink:focus-visible {
+  outline-color: var(--color-inverse);
+  box-shadow: 0 0 0 4px var(--color-page);
+}
+
+/* Inverse text on ink-filled controls must invert with the ink token too. */
+:root[data-theme='dark'] .bg-ink.text-inverse {
+  color: var(--color-page);
+}
+
+:root[data-theme='dark'] .bg-ink.text-inverse:hover {
+  background: var(--color-ink-2);
+}
+
+:root[data-theme='dark'] .border-danger:active {
+  background: var(--color-danger-bg);
+}
+
+:root[data-theme='dark'] .markmap {
+  --markmap-text-color: var(--color-ink);
+  --markmap-a-color: var(--color-accent);
+  --markmap-a-hover-color: var(--color-ink);
+  --markmap-code-bg: var(--color-subtle);
+  --markmap-code-color: var(--color-ink-2);
+  --markmap-circle-open-bg: var(--color-page);
+  --markmap-highlight-bg: var(--color-sel);
+}
+
+@media (max-width: 500px) {
+  .app-brand-group {
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "kind": "asr",
+    "id": "onnx-community/whisper-base",
+    "revision": "1846881b6b3a3024392c1eea3ad983695bc23925",
+    "dtype": "q8",
+    "license": "Apache-2.0 (upstream model; conversion repo has no separate LICENSE)",
+    "source": "https://huggingface.co/onnx-community/whisper-base",
+    "bytes": 81284108,
+    "files": [
+      {
+        "name": "added_tokens.json",
+        "bytes": 34604,
+        "sha256": null,
+        "gitBlob": "e3d256c988462aa153dcabe2aa38b8e9b436c06f"
+      },
+      {
+        "name": "config.json",
+        "bytes": 2243,
+        "sha256": null,
+        "gitBlob": "ce7faf5d5e56e82d4800e55f524582a525639ff7"
+      },
+      {
+        "name": "generation_config.json",
+        "bytes": 3832,
+        "sha256": null,
+        "gitBlob": "a57cdbf036979f80bb7ff092a0fee6256a81d329"
+      },
+      {
+        "name": "merges.txt",
+        "bytes": 493869,
+        "sha256": null,
+        "gitBlob": "6038932a2a1f09a66991b1c2adae0d14066fa29e"
+      },
+      {
+        "name": "normalizer.json",
+        "bytes": 52666,
+        "sha256": null,
+        "gitBlob": "dd6ae819ad738ac1a546e9f9282ef325c33b9ea0"
+      },
+      {
+        "name": "onnx/decoder_model_merged_quantized.onnx",
+        "bytes": 53693315,
+        "sha256": "fa3ef9902734ce5ae6f9ef2bdb2ba9a6c4b5785b09f4f420ce036573dc9d090b",
+        "gitBlob": "292f1541d8234f2343023bc5c18063d33686f5e2"
+      },
+      {
+        "name": "onnx/encoder_model_quantized.onnx",
+        "bytes": 23201314,
+        "sha256": "5862993336bf33acd23736071aae2b32261d3b1b2f37780194460d4ef974dd46",
+        "gitBlob": "176c6da9f79a5c0c49b8c662afcc7627a96173a5"
+      },
+      {
+        "name": "preprocessor_config.json",
+        "bytes": 339,
+        "sha256": null,
+        "gitBlob": "91876762a536a746d268353c5cba57286e76b058"
+      },
+      {
+        "name": "special_tokens_map.json",
+        "bytes": 2194,
+        "sha256": null,
+        "gitBlob": "bf69932dca4b3719b59fdd8f6cc1978109509f6c"
+      },
+      {
+        "name": "tokenizer.json",
+        "bytes": 2480466,
+        "sha256": null,
+        "gitBlob": "1e95340ff836fad1b5932e800fb7b8c5e6d78a74"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "bytes": 282682,
+        "sha256": null,
+        "gitBlob": "25be523be5ac50a7671a77f55acba082459d6314"
+      },
+      {
+        "name": "vocab.json",
+        "bytes": 1036584,
+        "sha256": null,
+        "gitBlob": "90e797dd4fd05d9dea443d702ca06be2463c5f2f"
+      }
+    ]
+  },
+  {
+    "kind": "text",
+    "id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "revision": "22942cb7d7ba4cc81bb4673549ca4d4614469b5e",
+    "dtype": "q8",
+    "license": "Apache-2.0 (upstream model; conversion repo has no separate LICENSE)",
+    "source": "https://huggingface.co/onnx-community/Qwen2.5-0.5B-Instruct",
+    "bytes": 523586903,
+    "files": [
+      {
+        "name": "added_tokens.json",
+        "bytes": 605,
+        "sha256": null,
+        "gitBlob": "482ced4679301bf287ebb310bdd1790eb4514232"
+      },
+      {
+        "name": "config.json",
+        "bytes": 678,
+        "sha256": null,
+        "gitBlob": "eea21cd6f7909a44509a193b7fcdac194766c904"
+      },
+      {
+        "name": "generation_config.json",
+        "bytes": 242,
+        "sha256": null,
+        "gitBlob": "f602853d6100c43666f46c67b1c354fa15fe0b93"
+      },
+      {
+        "name": "merges.txt",
+        "bytes": 1671853,
+        "sha256": null,
+        "gitBlob": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"
+      },
+      {
+        "name": "onnx/model_quantized.onnx",
+        "bytes": 512096557,
+        "sha256": "41834041ab1b29eff9fc592f1a29a1844133aea35832ea9fa91682be13016100",
+        "gitBlob": "1ae4272fd2a7a1c1b93622b27ba5c2b1f99a54fd"
+      },
+      {
+        "name": "special_tokens_map.json",
+        "bytes": 613,
+        "sha256": null,
+        "gitBlob": "ac23c0aaa2434523c494330aeb79c58395378103"
+      },
+      {
+        "name": "tokenizer.json",
+        "bytes": 7031673,
+        "sha256": null,
+        "gitBlob": "d24314ef7f0afd1b678c2e24c767e19f24f86b0e"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "bytes": 7849,
+        "sha256": null,
+        "gitBlob": "24afe3594154cfee05edda73aeadf3daae0a53ba"
+      },
+      {
+        "name": "vocab.json",
+        "bytes": 2776833,
+        "sha256": null,
+        "gitBlob": "4783fe10ac3adce15ac8f358ef5462739852c569"
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "version": "siliconflow-official-20261027",
+  "effective_at": "2026-10-27T00:00:00+08:00",
+  "input": 2000,
+  "output": 8000,
+  "cache": 40,
+  "verified": true,
+  "unit": "integer nano-CNY per token",
+  "source": "https://www.siliconflow.cn/pricing",
+  "off_peak": {"input": 1000, "output": 4000, "cache": 20},
+  "asr_quick": {
+    "kind": "asr",
+    "model": "FunAudioLLM/SenseVoiceSmall",
+    "version": "siliconflow-official-20261027-free-sensevoice",
+    "verified": true,
+    "input": 0,
+    "output": 0,
+    "cache": 0,
+    "audio_nano_cny_per_second": 0,
+    "billing_unit": "input_audio_second",
+    "measurement": "official free model; zero charge recorded in shared ledger",
+    "source": "https://www.siliconflow.cn/pricing",
+    "max_bytes": 50000000,
+    "max_seconds": 3600
+  },
+  "asr": {
+    "kind": "asr",
+    "model": "Qwen/Qwen3-ASR-1.7B",
+    "version": "siliconflow-official-20261027-qwen3-asr-1.7b",
+    "verified": true,
+    "input": 0,
+    "output": 0,
+    "cache": 0,
+    "audio_nano_cny_per_second": 220000,
+    "billing_unit": "input_audio_second",
+    "measurement": "ffprobe actual uploaded audio duration in microseconds; cost rounded up to integer nano-CNY",
+    "source": "https://www.siliconflow.cn/pricing",
+    "max_bytes": 50000000,
+    "max_seconds": 3600
+  }
+}

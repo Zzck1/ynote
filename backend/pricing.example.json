@@ -1,0 +1,10 @@
+{
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "version": "pending-official-verification",
+  "effective_at": null,
+  "input": null,
+  "output": null,
+  "cache": null,
+  "verified": false,
+  "unit": "integer nano-CNY per token; requires actual official rates and authorized compatibility verification"
+}

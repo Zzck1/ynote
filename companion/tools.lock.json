@@ -1,0 +1,66 @@
+{
+  "component": "ffmpeg",
+  "version": "n8.1.3-23-g5c4f5744cd-20261022",
+  "platform": "windows",
+  "architecture": "x64",
+  "license": "LGPL build; read publisher licenses",
+  "source": "https://github.com/BtbN/FFmpeg-Builds",
+  "filename": "ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip",
+  "url": "https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-win64-lgpl-shared-8.1.zip",
+  "asset_id": 665957447,
+  "bytes": 80985362,
+  "sha256": "800155bc9d7148f5c402bf4d6c371e1deb2e6aab19294fbd4bfeafa65d8b050e",
+  "installed_bytes": 186730496,
+  "files": [
+    {
+      "name": "swscale-9.dll",
+      "bytes": 12900864,
+      "sha256": "1b3129785ca98df2d524fa377d9eb26a1ab12c1750fce0dec2ea14bd8b6c3672"
+    },
+    {
+      "name": "avdevice-62.dll",
+      "bytes": 4947456,
+      "sha256": "14862836f9f128978366a707b6c431c0dab7f0cb179ddd1c625928c7df8efceb"
+    },
+    {
+      "name": "ffmpeg.exe",
+      "bytes": 540672,
+      "sha256": "39b73250e62a09844dfb5bd6dc875351952177e853f8e28173f35daf4b323039"
+    },
+    {
+      "name": "ffprobe.exe",
+      "bytes": 226816,
+      "sha256": "1cac041742f2975d8cccde8b3f49f0c3a68e4ff19d65554794d5aaf79cab2394"
+    },
+    {
+      "name": "avcodec-62.dll",
+      "bytes": 90947072,
+      "sha256": "131e8e2d656bfc4f0bb95d3a7710cca17d914d254712f48624208e3de801a63c"
+    },
+    {
+      "name": "avutil-60.dll",
+      "bytes": 3014144,
+      "sha256": "1705b6d359ace139eba6c1117f192604a08d751117702bd7c306f8f4095d5d89"
+    },
+    {
+      "name": "swresample-6.dll",
+      "bytes": 734720,
+      "sha256": "7ede1c409430ae95fc66e34d408bed2b2223db2ddbdf2b2852a297748b422441"
+    },
+    {
+      "name": "ffplay.exe",
+      "bytes": 19132928,
+      "sha256": "aa9ea8f1a3c4f17df1c77639a5e55ed338c5096476536b033596d9d7be32e1c5"
+    },
+    {
+      "name": "avfilter-11.dll",
+      "bytes": 31557632,
+      "sha256": "58e2ec584c76e0e10a417bdbd13a9ce81146ee248568a6f96f1998ddf62e6f22"
+    },
+    {
+      "name": "avformat-62.dll",
+      "bytes": 22728192,
+      "sha256": "e41bcf406c5d1bc97c6426c71f8f71967acdf6a58077daf17ee0cebec96a7248"
+    }
+  ]
+}

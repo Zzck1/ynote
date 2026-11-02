@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+  --color-page: #ffffff;
+  --color-subtle: #f8faff;
+  --color-hov: #eff4fb;
+  --color-act: #e2ebfa;
+  --color-sel: #edf4ff;
+  --color-line: #e3e9f1;
+  --color-line-strong: #ccd6e5;
+  --color-ink: #16324f;
+  --color-ink-2: #536a82;
+  --color-ink-3: #62778e;
+  --color-ink-4: #7c8da0;
+  --color-inverse: #ffffff;
+  --color-accent: #1765e8;
+  --color-success: #168a66;
+  --color-success-bg: #ecf9f2;
+  --color-danger: #c94053;
+  --color-danger-bg: #fff0f1;
+  --color-warning: #946000;
+  --color-warning-bg: #fff8e9;
+  --color-info: #1765e8;
+  --color-info-bg: #edf4ff;
+  --radius-sm: 6px;
+  --radius-md: 9px;
+  --radius-lg: 14px;
+  --shadow-pop: 0 12px 30px #0004;
+  --shadow-modal: 0 30px 90px #0008;
+}
+
+/* ===== 基础（design-spec §8.1 焦点态 / §4.6 过渡） ===== */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-page);
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+/* 黑底按钮焦点：白描边 + 黑色外圈双描边 */
+.btn-ink:focus-visible {
+  outline-color: #ffffff;
+  box-shadow: 0 0 0 4px #171717;
+}
+
+::placeholder {
+  color: var(--color-ink-4);
+}
+
+/* ===== 动效（design-spec §8.8：≤200ms；reduced-motion 归零非必要位移动画） ===== */
+@keyframes eday-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+@keyframes eday-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes eday-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dot-breath {
+  animation: eday-breathe 1.5s ease-in-out infinite;
+}
+.dot-blink {
+  animation: eday-breathe 0.4s ease-in-out 4;
+}
+.icon-spin {
+  animation: eday-spin 0.9s linear infinite;
+}
+.skeleton-pulse {
+  animation: eday-pulse 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-breath,
+  .dot-blink,
+  .icon-spin,
+  .skeleton-pulse {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+  }
+}
+
+/* ===== 滚动条（窄滚动条，thumb 用 bg-active #EBEBEB） ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-act) transparent;
+}
+
+/* ===== Markdown 渲染区（design-spec §3.2 / §5.9） ===== */
+.md-body {
+  color: var(--color-ink);
+  font-size: 14px;
+  line-height: 1.7;
+  word-break: break-word;
+}
+.md-body > :first-child {
+  margin-top: 0;
+}
+.md-body h1 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 24px 0 12px;
+}
+.md-body h2 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 20px 0 10px;
+}
+.md-body h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 16px 0 8px;
+}
+.md-body p {
+  margin: 8px 0;
+}
+.md-body ul,
+.md-body ol {
+  padding-left: 20px;
+  margin: 8px 0;
+}
+.md-body ul {
+  list-style: disc;
+}
+.md-body ol {
+  list-style: decimal;
+}
+.md-body li {
+  margin: 4px 0;
+}
+.md-body blockquote {
+  border-left: 2px solid var(--color-ink);
+  background: var(--color-subtle);
+  padding: 8px 12px;
+  margin: 12px 0;
+  border-radius: 0 4px 4px 0;
+}
+.md-body code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--color-subtle);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+.md-body pre {
+  background: var(--color-subtle);
+  padding: 12px;
+  border-radius: 4px;
+  overflow: auto;
+  margin: 12px 0;
+}
+.md-body pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 13px;
+}
+.md-body table {
+  border-collapse: collapse;
+  margin: 12px 0;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+}
+.md-body th {
+  font-weight: 500;
+  text-align: left;
+  border-bottom: 1px solid var(--color-line-strong);
+  padding: 6px 10px;
+  font-size: 14px;
+}
+.md-body td {
+  border-bottom: 1px solid var(--color-line);
+  padding: 6px 10px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.md-body hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid var(--color-line);
+}
+.md-body a {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+/* Shared knowledge workspace */
+:root { color-scheme: light; }
+body { margin:0; }
+button, a, input, textarea { -webkit-tap-highlight-color:transparent; }
+button { cursor:pointer; }
+button:disabled { cursor:not-allowed; }
+button > span { display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+input[type=checkbox],input[type=radio] { accent-color:var(--color-accent); }
+.workspace-content { max-width:1050px; padding:0 28px; }
+.workspace-heading { display:flex; align-items:center; justify-content:space-between; padding:28px 0 22px; gap:16px; }
+.workspace-heading h1 { font-size:24px; font-weight:600; margin-top:6px; }
+.eyebrow { font-size:10px; letter-spacing:.14em; font-weight:600; color:var(--color-accent); }
+.mode-label { font-size:11px; color:var(--color-ink-3); white-space:nowrap; }
+.import-card { padding:22px; border:1px solid var(--color-line); background:white; border-radius:12px; margin-bottom:24px; }
+.input-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.library-heading { display:flex; align-items:center; gap:8px; padding:24px 18px 16px; font-weight:600; }
+.library-item { margin-bottom:6px; }
+.library-item.selected { background:var(--color-sel); }
+.library-thumb { width:40px; height:45px; object-fit:cover; border-radius:6px; }
+.library-footer { padding:20px; font-size:11px; color:var(--color-ink-3); }
+.workspace-tabs { display:flex; border-bottom:1px solid var(--color-line); background:white; }
+.workflow-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:18px; }
+.workflow-card { padding:22px; border:1px solid var(--color-line); border-radius:12px; }
+.workflow-card h3 { margin:16px 0 8px; font-weight:600; }
+.workflow-card p { font-size:12px; color:var(--color-ink-3); }
+.research-empty { padding:30px; margin-top:24px; border:1px dashed var(--color-line-strong); border-radius:12px; }
+.markmap { min-height:420px; --markmap-text-color:var(--color-ink); }
+@media(max-width:600px) { .workspace-content { padding:0 16px; } .workflow-grid { grid-template-columns:1fr; } .workspace-heading h1 { font-size:20px; } .mode-label { display:none; } }

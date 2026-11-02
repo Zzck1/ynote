@@ -1,0 +1,20 @@
+Ynote 网站完整部署包（2026-10-27）
+
+包含：已构建的美化前端、前端源码、轻量 Python 网关、双模式配置与每日共享10元账本、Windows媒体助手运行包、Docker Compose、Nginx模板。
+不包含：实际API Key、Windows加密凭据、用户媒体/任务/账本、node_modules、ASR模型。助手包为未签名测试包；macOS尚无运行包。
+
+Linux云服务器建议：Docker+Compose；网站用HTTPS；后端只运行1个worker。不要直接把完整目录全部作为网站静态根目录公开！静态根仅frontend/dist，或由本包网关分发；后端源码与.env不可公开。
+
+最短部署步骤（先在服务器解压进入Ynote目录）：
+1. python3 deploy/configure_domain.py --origin https://你的真实域名
+   此命令同步网站Origin、助手网站白名单、助手ZIP校验值和下载清单，不接受全站通配。
+2. 在服务器编辑.env，填写YNOTE_SILICONFLOW_API_KEY；每日预算默认为10.00元。不要将Key填到前端/助手/聊天或上传公共仓库。
+3. bash deploy/start.sh
+   会构建容器、只验证鉴权与模型列表（无付费生成），再启动网站。数据写Docker的ynote-data持久卷；更新时不得删除该卷。
+4. 按自己的域名和证书配置site.nginx.conf。后端只绑定127.0.0.1:8792；证书可通过已有面板或Certbot配置。确认域名HTTPS正常后供用户访问。
+5. 用户通过一键配置下载并解压Windows助手，自己启动、允许配对；后续提取自动处理。网站不能绕过操作系统安装/本地网络许可。
+
+快速：FunAudioLLM/SenseVoiceSmall；精准：Qwen/Qwen3-ASR-1.7B；笔记：deepseek-ai/DeepSeek-V4.1-Flash。转写与笔记共用每日10元预算。Qwen按官方每秒0.00022元费率和实际上传音频时长计入平台预算（取整到nano-CNY）；文本按返回token用量结算；不确定结果保留预占，不自动重发。
+媒体下载、转码、封面和资料保存在用户助手；浏览器渲染导图与导出。云端仅校验准备好的MP3、代理硅基流动请求及记账；临时音频处理后删除，不执行视频转码、抽帧或本地大模型推理。
+
+本包是可配置部署材料，不代表已替你在云服务器上线。生产HTTPS配对、真实目标机器仍需你自己验证；本次没有操作浏览器或发起新的付费模型测试。

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Restore the display preference before the first paint to avoid a light flash.
+      (function () {
+        var theme = 'light';
+        try { if (localStorage.getItem('ynote.theme.v1') === 'dark') theme = 'dark'; } catch (_) {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+    <link rel="icon" type="image/jpeg" href="/ynote-logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta
+      name="description"
+      content="粘贴分享链接，取走封面、文案、视频、图片和音频，连接你选择的模型，生成 AI 笔记与思维导图。运行在你自己的电脑上。"
+    />
+    <title>Ynote · 内容与知识工作台</title>
+      <link rel="stylesheet" href="/assets/ynote-polish-v1.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
